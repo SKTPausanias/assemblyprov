@@ -20,17 +20,17 @@ int main()
 	cadena = ft_strcpy(cadena, "cadenita");
 	//cadena = strcpy(cadena, "cadenita");
 	printf("%s\n", cadena);
-	printf("%d\n", ft_strcmp("zola", "zolas"));
-	printf("%d\n", strcmp("zola", "zolas"));
-	printf("%d\n", ft_write(1, "holaq", 3));
+	printf("%d\n", ft_strcmp("zola", "alas"));
+	printf("%d\n", strcmp("zola", "alas"));*/
+	printf("%d\n", ft_write(1, "holaq", 20));
 	write(1, "\n", 1);
-	printf("%d\n", write(1, "holaq", 3));*/
-	char buf[100];
-	char buf2[100];
+	printf("%d\n", write(1, "holaq", 20));
+	//char buf[100];
+	//char buf2[100];
 	//printf("%d\n", read(0, buf, 2));
-	printf("%d\n", ft_read(0, buf2, 2));
+	//printf("%d\n", ft_read(0, buf2, 2));
 	//printf("%s\n", buf);
-	printf("%s\n", buf2);
-	//hello();
+	//printf("%s\n", buf2);
+	hello();
 	return (0);
 }
