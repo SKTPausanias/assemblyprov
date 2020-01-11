@@ -5,6 +5,9 @@ global	_ft_strcmp
 	section .text
 _ft_strcmp:
 			mov rcx, -1
+			mov rbx, 0
+			mov rdx, 0
+			mov rax, 0
 while:		inc rcx
 			mov dl, byte [rdi + rcx]
 			mov bl, byte [rsi + rcx]
@@ -13,13 +16,13 @@ while:		inc rcx
 			jl	ret2
 			cmp	dl, 0
 			jne while
-			cmp bl, 0
-			jne while
-			mov rax, 0
 			ret
 
-ret1: 		mov rax, 1
+ret2:		sub rbx, rdx
+			neg rbx
+			mov rax, rbx
 			ret
 
-ret2:		mov rax, -1
+ret1:		sub rdx, rbx
+			mov rax, rdx
 			ret
