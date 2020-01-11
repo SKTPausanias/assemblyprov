@@ -8,6 +8,7 @@ int ft_strlen(char *s);
 char *ft_strcpy(char *dst, char *src);
 int	ft_strcmp(char *s1, char *s2);
 ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
+ssize_t ft_read(int fildes, void *buf, size_t nbyte);
 
 int main()
 {
@@ -20,10 +21,16 @@ int main()
 	//cadena = strcpy(cadena, "cadenita");
 	printf("%s\n", cadena);
 	printf("%d\n", ft_strcmp("zola", "zolas"));
-	printf("%d\n", strcmp("zola", "zolas"));*/
-	printf("%d\n", ft_write(1, "holaq", 10));
+	printf("%d\n", strcmp("zola", "zolas"));
+	printf("%d\n", ft_write(1, "holaq", 3));
 	write(1, "\n", 1);
-	printf("%d\n", write(1, "holaq", 10));
+	printf("%d\n", write(1, "holaq", 3));*/
+	char buf[100];
+	char buf2[100];
+	//printf("%d\n", read(0, buf, 2));
+	printf("%d\n", ft_read(0, buf2, 2));
+	//printf("%s\n", buf);
+	printf("%s\n", buf2);
 	//hello();
 	return (0);
 }
