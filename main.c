@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 void hello();
 int ft_strlen(char *s);
 char *ft_strcpy(char *dst, char *src);
 int	ft_strcmp(char *s1, char *s2);
+ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
 
 int main()
 {
-	char *cad = "cadena";
+	/*char *cad = "cadena";
 	printf("%d\n", ft_strlen(cad));
 	//printf("%d\n", strlen(cad));
 	char *cadena = malloc(10);
@@ -18,7 +20,10 @@ int main()
 	//cadena = strcpy(cadena, "cadenita");
 	printf("%s\n", cadena);
 	printf("%d\n", ft_strcmp("zola", "zolas"));
-	printf("%d\n", strcmp("zola", "zolas"));
-	hello();
+	printf("%d\n", strcmp("zola", "zolas"));*/
+	printf("%d\n", ft_write(1, "holaq", 10));
+	write(1, "\n", 1);
+	printf("%d\n", write(1, "holaq", 10));
+	//hello();
 	return (0);
 }
