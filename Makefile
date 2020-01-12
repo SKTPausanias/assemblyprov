@@ -6,7 +6,7 @@
 #    By: mlaplana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:49:42 by mlaplana          #+#    #+#              #
-#    Updated: 2020/01/12 12:07:35 by mlaplana         ###   ########.fr        #
+#    Updated: 2020/01/12 20:59:37 by mlaplana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,12 @@ $(NAME):
 	-@nasm -f macho64 ft_write.s
 	-@nasm -f macho64 ft_read.s
 	-@nasm -f macho64 ft_strdup.s
+	-@nasm -f macho64 ft_list_push_front.s	
+	-@nasm -f macho64 ft_list_size.s
 	-@ar rcs $(NAME) *.o
 
 clean:
-	-@rm ft_strcpy.o ft_strlen.o ft_strcmp.o ft_write.o ft_read.o ft_strdup.o
+	-@rm ft_strcpy.o ft_strlen.o ft_strcmp.o ft_write.o ft_read.o ft_strdup.o ft_list_push_front.o ft_list_size.o
 
 fclean: clean
 	-@rm $(NAME)
