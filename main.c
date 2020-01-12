@@ -9,6 +9,7 @@ char *ft_strcpy(char *dst, char *src);
 int	ft_strcmp(const char *s1,const char *s2);
 ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t ft_read(int fildes, void *buf, size_t nbyte);
+char *ft_strdup(const char *s1);
 
 int main()
 {
@@ -19,9 +20,13 @@ int main()
 	//printf("%s\n",ft_strcpy(cadena, "cadenalmaolol"));
 	cadena = ft_strcpy(cadena, "cadenita");
 	//cadena = strcpy(cadena, "cadenita");
-	printf("%s\n", cadena);*/
+	printf("%s\n", cadena);
 	printf("%d\n", ft_strcmp("hola", "what"));
-	printf("%d\n", strcmp("hola", "what"));
+	printf("%d\n", strcmp("hola", "what"));*/
+	char *cadena = "cadena";
+	char *cad = ft_strdup(cadena);
+	printf("%s\n", cad);
+	printf("%d\n", ft_strlen(cad));
 	/*printf("%d\n", ft_write(1, "holaq", 20));
 	write(1, "\n", 1);
 	printf("%d\n", write(1, "holaq", 20));*/
