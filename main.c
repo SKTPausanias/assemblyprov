@@ -9,6 +9,7 @@
 #define BLUE    "\x1b[34m"
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
+#define RESET	"\033[0m"
 
 typedef struct		s_list
 {
@@ -30,26 +31,31 @@ void	ft_list_sort(t_list **begin_list, int (*cmp)());
 
 int main()
 {
-	printf("-- ft_strlen\n");
-	printf("len ("") = %d\n", ft_strlen(""));
-	printf("%d\n", ft_strlen("a"));
-	printf("%d\n", ft_strlen("aa"));
-	printf("%d\n", ft_strlen("licorne"));
-
+	printf(RED"-- ft_strlen\n"RESET);
+	printf("Original:         |  MineInAssembly:\n");
+	printf("len () = %zu        |  ", strlen("")); 
+	printf("len () = %d\n", ft_strlen(""));
+	printf("len (a) = %zu       |  ", strlen("a")); 
+	printf("len (a) = %d\n", ft_strlen("a"));
+	printf("len (coo) = %zu     |  ", strlen("coo")); 
+	printf("len (coo) = %d\n", ft_strlen("coo"));
+	printf("len (quePasa) = %zu |  ", strlen("quePasa")); 
+	printf("len (quePasa) = %d\n", ft_strlen("quePasa"));
+	
 	char dest[50];
-	printf("-- ft_strcpy\n");
+	printf(GREEN"-- ft_strcpy\n"RESET);
 	printf("%s\n", ft_strcpy(dest, "licorne"));
 	printf("%s\n", ft_strcpy(dest, "aaa"));
 	printf("%s\n", ft_strcpy(dest, "aa"));
 	printf("%s\n", ft_strcpy(dest, ""));
 
-	printf("-- ft_strcmp\n");
+	printf(YELLOW"-- ft_strcmp\n"RESET);
 	printf("%d\n", ft_strcmp("a", "b"));
 	printf("%d\n", ft_strcmp("", "a"));
 	printf("%d\n", ft_strcmp("aaaaa", "a"));
 	printf("%d\n", ft_strcmp("a", "aaaaa"));
 
-	printf("-- ft_write\n");
+	printf(BLUE"-- ft_write\n"RESET);
 	printf("ret was %ld\n", ft_write(1, "licorne\n", 8));
 	printf("ret was %ld\n", ft_write(1, "aaa\n", 4));
 
@@ -61,13 +67,13 @@ int main()
 	ret = (int)ft_read(0, dest, 8);
 	printf("ret is %d, read '%.*s'\n", ret, ret, dest);
 	*/
-	printf("-- ft_strdup\n");
+	printf(MAGENTA"-- ft_strdup\n"RESET);
 	printf("'%s'\n", ft_strdup("hello"));
 	printf("'%s'\n", ft_strdup("unicorn"));
 	printf("'%s'\n", ft_strdup(""));
 
 	t_list *lst = NULL;
-	printf("-- ft_list_push_front\n");
+	printf(CYAN"-- ft_list_push_front\n"RESET);
 	ft_list_push_front(&lst, "licorne");
 	ft_list_push_front(&lst, "aya");
 	ft_list_push_front(&lst, "ooooo");
@@ -80,7 +86,7 @@ int main()
 		free(tmp);
 	}
 
-	printf("-- ft_list_size\n");
+	printf(RED"-- ft_list_size\n"RESET);
 	printf("size = %d\n", ft_list_size(lst));
 	ft_list_push_front(&lst, "aya");
 	printf("size = %d\n", ft_list_size(lst));

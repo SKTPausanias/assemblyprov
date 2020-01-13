@@ -6,7 +6,7 @@
 #    By: mlaplana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:49:42 by mlaplana          #+#    #+#              #
-#    Updated: 2020/01/12 20:59:37 by mlaplana         ###   ########.fr        #
+#    Updated: 2020/01/13 16:58:12 by mlaplana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ fclean: clean
 
 re: fclean all
 
-test: re
+test: re all
 	-@gcc -fno-builtin main.c libasm.a -o test
 	-@./test
 
