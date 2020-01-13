@@ -41,10 +41,11 @@ int main()
 	printf("len (coo) = %d\n", ft_strlen("coo"));
 	printf("len (quePasa) = %zu |  ", strlen("quePasa")); 
 	printf("len (quePasa) = %d\n", ft_strlen("quePasa"));
-	
+
+	printf("\n");	
 	char dest[50];
 	printf(GREEN"-- ft_strcpy\n"RESET);
-	printf("%s\n", ft_strcpy(dest, "licorne"));
+	printf("%s\n", ft_strcpy(dest, "wtfbrolmao"));
 	printf("%s\n", ft_strcpy(dest, "aaa"));
 	printf("%s\n", ft_strcpy(dest, "aa"));
 	printf("%s\n", ft_strcpy(dest, ""));
@@ -55,8 +56,10 @@ int main()
 	printf("%d\n", ft_strcmp("aaaaa", "a"));
 	printf("%d\n", ft_strcmp("a", "aaaaa"));
 
+	printf("\n");
 	printf(BLUE"-- ft_write\n"RESET);
-	printf("ret was %ld\n", ft_write(1, "licorne\n", 8));
+	printf("\n");
+	printf("ret was %ld\n", ft_write(1, "zaragoza\n", 9));
 	printf("ret was %ld\n", ft_write(1, "aaa\n", 4));
 
 	/*
@@ -67,12 +70,14 @@ int main()
 	ret = (int)ft_read(0, dest, 8);
 	printf("ret is %d, read '%.*s'\n", ret, ret, dest);
 	*/
+	printf("\n");
 	printf(MAGENTA"-- ft_strdup\n"RESET);
 	printf("'%s'\n", ft_strdup("hello"));
 	printf("'%s'\n", ft_strdup("unicorn"));
 	printf("'%s'\n", ft_strdup(""));
 
 	t_list *lst = NULL;
+	printf("\n");
 	printf(CYAN"-- ft_list_push_front\n"RESET);
 	ft_list_push_front(&lst, "licorne");
 	ft_list_push_front(&lst, "aya");
@@ -86,6 +91,7 @@ int main()
 		free(tmp);
 	}
 
+	printf("\n");
 	printf(RED"-- ft_list_size\n"RESET);
 	printf("size = %d\n", ft_list_size(lst));
 	ft_list_push_front(&lst, "aya");
