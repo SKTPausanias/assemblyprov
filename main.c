@@ -91,17 +91,27 @@ int main()
 		free(tmp);
 	}
 
+	t_list *lst2 = NULL;
 	printf("\n");
 	printf(RED"-- ft_list_size\n"RESET);
-	printf("size = %d\n", ft_list_size(lst));
-	ft_list_push_front(&lst, "aya");
-	printf("size = %d\n", ft_list_size(lst));
-	ft_list_push_front(&lst, "ooooo");
-	printf("size = %d\n", ft_list_size(lst));
-	ft_list_push_front(&lst, "ddd");
-	printf("size = %d\n", ft_list_size(lst));
-	ft_list_push_front(&lst, "ooddd");
-	printf("size = %d\n", ft_list_size(lst));
+	printf("size = %d\n", ft_list_size(lst2));
+	ft_list_push_front(&lst2, "aya");
+	printf("size = %d\n", ft_list_size(lst2));
+	ft_list_push_front(&lst2, "ooooo");
+	printf("size = %d\n", ft_list_size(lst2));
+	ft_list_push_front(&lst2, "ddd");
+	printf("size = %d\n", ft_list_size(lst2));
+	ft_list_push_front(&lst2, "ooddd");
+	printf("size = %d\n", ft_list_size(lst2));
 
+	printf("\n");
+	//ft_list_sort(&lst2, &ft_strcmp());
+	while (lst2)
+	{
+		printf("element: '%s'\n", lst2->data);
+		//t_list *tmp = lst2;
+		lst2 = lst2->next;
+		//free(tmp);
+	}
 	return (0);
 }
