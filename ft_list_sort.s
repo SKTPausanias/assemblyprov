@@ -6,15 +6,12 @@ extern	_ft_strcmp
 _ft_list_sort:
 			cmp rdi, 0x0
 			je _end
-			cmp [rdi], 0x0
-			je _end
+			;cmp byte [rdi], 0
+			;je _end
+_while1:	cmp byte [rdi + 8], 0
+			je	_end
 			mov rcx, [rdi + 8]
-_while1:	cmp [rdi + 8], 0
-			je	_end
-_while2:	mov rcx, [rcx + 8]
-			cmp rcx, 0
-			je	_end
-			push rdi
+_while2:	push rdi
 			push rcx
 			mov rdi, [rdi]
 			mov rax, rsi
@@ -22,12 +19,19 @@ _while2:	mov rcx, [rcx + 8]
 			call rax
 			cmp rax, 0
 			jg _swap
-			pop rcx
-			pop rdi 
+_continue	pop rcx
+			pop rdi
+			cmp byte [rcx + 8], 0
+			jne _prewhile
 			mov rdi, [rdi + 8]
+			jmp _while1
 
-_swap		mov rbx, 0
-			mov rbx, rdi
-			mov rdi, rsi
-			mov rsi, rbx 
+_prewhile	mov rcx, [rcx + 8]
+			jmp _while2
 
+_swap:		mov rbx, [rdi]
+			mov [rdi], rsi
+			mov [rsi], rbx
+			jmp _continue 
+
+_end:		ret

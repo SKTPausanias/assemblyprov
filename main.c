@@ -105,7 +105,10 @@ int main()
 	printf("size = %d\n", ft_list_size(lst2));
 
 	printf("\n");
-	//ft_list_sort(&lst2, &ft_strcmp());
+	//void *first = lst2->data;
+	//lst2 = lst2->next;
+	//ft_list_sort(&lst2, ft_strcmp(first, lst2->data));
+	ft_list_sort(&lst2, &ft_strcmp);
 	while (lst2)
 	{
 		printf("element: '%s'\n", lst2->data);
