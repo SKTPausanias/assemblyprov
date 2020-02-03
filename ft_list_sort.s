@@ -19,9 +19,7 @@ _while2:	push rdi
 			call rax
 			cmp rax, 0
 			jg _swap
-_continue	pop rcx
-			pop rdi
-			cmp byte [rcx + 8], 0
+_continue	cmp byte [rcx + 8], 0
 			jne _prewhile
 			mov rdi, [rdi + 8]
 			jmp _while1
@@ -29,9 +27,12 @@ _continue	pop rcx
 _prewhile	mov rcx, [rcx + 8]
 			jmp _while2
 
-_swap:		mov rbx, [rdi]
-			mov [rdi], rsi
-			mov [rsi], rbx
+_swap:		mov bl, byte [rsi]
+			mov dl, byte [rdi]
+			pop rcx
+			pop rdi
+			mov [rdi], bl
+			mov [rcx], dl
 			jmp _continue 
 
 _end:		ret

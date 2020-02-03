@@ -6,36 +6,43 @@
 #    By: mlaplana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/11 17:49:42 by mlaplana          #+#    #+#              #
-#    Updated: 2020/01/14 12:26:47 by mlaplana         ###   ########.fr        #
+#    Updated: 2020/01/24 17:00:30 by mlaplana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libasm.a
+# ASM 64bits, '.s' files, compile with nasm, Intel syntax
+NAME	=	Libasm.a
+SRCS	=	ft_strlen.s ft_strcpy.s	ft_strcmp.s	ft_write.s	\
+			ft_read.s	ft_strdup.s
+OBJS	=	$(SRCS:.s=.o)
+BONUS_SRCS	=	ft_list_push_front.s	ft_list_size.s
+BONUS_OBJS	=	$(BONUS_SRCS:.s=.o)
+NASM_FLAGS	=	-fmacho64
+%.o:	%.s
+	@nasm $(NASM_FLAGS) $?
 
-all: $(NAME)
+all:	$(NAME)
 
-$(NAME):
-	-@nasm -f macho64 ft_strcpy.s
-	-@nasm -f macho64 ft_strlen.s
-	-@nasm -f macho64 ft_strcmp.s
-	-@nasm -f macho64 ft_write.s
-	-@nasm -f macho64 ft_read.s
-	-@nasm -f macho64 ft_strdup.s
-	-@nasm -f macho64 ft_list_push_front.s	
-	-@nasm -f macho64 ft_list_size.s
-	-@nasm -f macho64 ft_list_sort.s
-	-@ar rcs $(NAME) *.o
+$(NAME):	$(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+test:	all
+	@gcc main.c Libasm.a && ./a.out
+
+test_bonus:	bonus
+	@gcc main_bonus.c Libasm.a && ./a.out
 
 clean:
-	-@rm ft_strcpy.o ft_strlen.o ft_strcmp.o ft_write.o ft_read.o ft_strdup.o ft_list_push_front.o ft_list_size.o ft_list_sort.o
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	-@rm $(NAME)
+fclean:	clean
+	rm -rf $(NAME) $(BONUS)
 
-re: fclean all
+re:	fclean all
 
-test: re all
-	-@gcc -fno-builtin main.c libasm.a -o test
-	-@./test
+re_bonus: fclean bonus
 
-.PHONY: all, clean, $(NAME), fclean, re, test
+.PHONY:	clean fclean re bonus test_bonus
